@@ -4,7 +4,7 @@ import Navigation from './components/Navigation';
 import LevelMain1 from './components/levelmain/LevelMain1';
 import LevelMain2 from './components/levelmain/LevelMain2';
 import LevelMain3 from './components/levelmain/LevelMain3';
-import LevelMain4 from './components/levelmain/Levelmain4';
+import LevelMain4 from './components/levelmain/LevelMain4';
 import LevelMain5 from './components/levelmain/LevelMain5';
 import LevelMain6 from './components/levelmain/LevelMain6';
 import LevelMain7 from './components/levelmain/LevelMain7';
