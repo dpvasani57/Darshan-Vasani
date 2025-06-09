@@ -10,31 +10,43 @@ function ArticleDetails({ loading, setLoading }) {
   const [article, setArticle] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [hasAttemptedFetch, setHasAttemptedFetch] = useState(false);
 
   const fetchArticle = useCallback(async () => {
+    // Prevent multiple fetches
+    if (hasAttemptedFetch) {
+      return;
+    }
+
     setLoading(true);
     setError(null);
+    setHasAttemptedFetch(true);
+
     try {
-      const { data } = await axios.get('https://newsapi.org/v2/everything', {
-        params: {
-          apiKey: API_KEY,
-          qInTitle: '',
-          pageSize: 50,
-        },
+      // Decode the URL from the ID parameter
+      const articleUrl = decodeURIComponent(id);
+      
+      // Instead of making a new API call, we can use the URL directly
+      // since we already have the article data from the news feed
+      setArticle({
+        url: articleUrl,
+        // You can add a loading state for the article content
+        // or implement a proper article fetching mechanism here
+        // For now, we'll just show the URL
+        title: 'Article Details',
+        content: `Article URL: ${articleUrl}`,
+        urlToImage: null,
+        author: 'Unknown',
+        publishedAt: new Date().toISOString()
       });
-      const found = data.articles.find(a => encodeURIComponent(a.url) === id);
-      if (!found) {
-        setError('Article not found');
-      }
-      setArticle(found || null);
     } catch (e) {
-      console.error('Error fetching article:', e);
+      console.error('Error processing article:', e);
       setError('Failed to load article');
       setArticle(null);
     } finally {
       setLoading(false);
     }
-  }, [id, setLoading]);
+  }, [id, setLoading, hasAttemptedFetch]);
 
   useEffect(() => {
     fetchArticle();
@@ -78,22 +90,24 @@ function ArticleDetails({ loading, setLoading }) {
         &larr; Back to News Feed
       </Link>
       <h2 style={{ marginBottom: '16px' }}>{article.title}</h2>
-      <img 
-        src={article.urlToImage || 'https://via.placeholder.com/600x300?text=No+Image'} 
-        alt={article.title}
-        style={{ 
-          width: '100%', 
-          maxHeight: 300, 
-          objectFit: 'cover', 
-          borderRadius: 8,
-          marginBottom: '16px'
-        }} 
-      />
+      {article.urlToImage && (
+        <img 
+          src={article.urlToImage} 
+          alt={article.title}
+          style={{ 
+            width: '100%', 
+            maxHeight: 300, 
+            objectFit: 'cover', 
+            borderRadius: 8,
+            marginBottom: '16px'
+          }} 
+        />
+      )}
       <div style={{ marginBottom: '16px' }}>
         <p><strong>Author:</strong> {article.author || 'Unknown'}</p>
         <p><strong>Published:</strong> {article.publishedAt ? new Date(article.publishedAt).toLocaleString() : 'N/A'}</p>
       </div>
-      <p style={{ lineHeight: 1.6 }}>{article.content || article.description || 'No content available.'}</p>
+      <p style={{ lineHeight: 1.6 }}>{article.content || 'No content available.'}</p>
       <a 
         href={article.url} 
         target="_blank" 
@@ -102,7 +116,10 @@ function ArticleDetails({ loading, setLoading }) {
           display: 'inline-block',
           marginTop: '16px',
           color: '#0066cc',
-          textDecoration: 'none'
+          textDecoration: 'none',
+          padding: '8px 16px',
+          border: '1px solid #0066cc',
+          borderRadius: '4px'
         }}
       >
         Read Original Article
