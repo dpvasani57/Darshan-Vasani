@@ -23,16 +23,13 @@ function ArticleDetails({ loading, setLoading }) {
     setHasAttemptedFetch(true);
 
     try {
-      // Decode the URL from the ID parameter
+     
       const articleUrl = decodeURIComponent(id);
       
-      // Instead of making a new API call, we can use the URL directly
-      // since we already have the article data from the news feed
+      // Instead of making a new API call, we can use the URL directly since we already have the article data from the news feed
+     
       setArticle({
         url: articleUrl,
-        // You can add a loading state for the article content
-        // or implement a proper article fetching mechanism here
-        // For now, we'll just show the URL
         title: 'Article Details',
         content: `Article URL: ${articleUrl}`,
         urlToImage: null,
