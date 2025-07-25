@@ -1,0 +1,124 @@
+.cart-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #764ba233;
+  padding: 32px 24px;
+}
+
+.cart-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #764ba2;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.cart-clear-btn {
+  background: #e53e3e;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cart-clear-btn:disabled {
+  background: #eee;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.cart-items-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-empty {
+  text-align: center;
+  color: #aaa;
+  font-size: 1.1rem;
+  padding: 32px 0;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #f7f7fa;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  padding: 16px 12px;
+  box-shadow: 0 2px 8px #764ba211;
+}
+
+.cart-item-info {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.cart-item-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.cart-qty-btn {
+  background: #764ba2;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cart-qty-btn:hover {
+  background: #667eea;
+}
+
+.cart-qty {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #764ba2;
+  min-width: 24px;
+  text-align: center;
+}
+
+.cart-item-total {
+  font-size: 1rem;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.cart-remove-btn {
+  background: #e53e3e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.cart-remove-btn:hover {
+  background: #c53030;
+} 

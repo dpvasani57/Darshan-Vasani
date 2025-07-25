@@ -1,0 +1,206 @@
+/* About Page Eye-Catching Styles */
+
+.about-page {
+  width: 70vw;
+  max-width: 1200px;
+  margin: 40px auto;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.10);
+  padding: 36px 28px 44px 28px;
+  position: relative;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.about-page h1 {
+  color: #764ba2;
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.about-page p {
+  color: #555;
+  font-size: 1.15rem;
+  margin-bottom: 28px;
+}
+
+.user-cards-row {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.user-card-wrapper {
+  width: 90%;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-card-title {
+  font-size: 1.08rem;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.user-card-horizontal {
+  width: 100%;
+  max-width: none;
+  min-width: 500px;
+  min-height: 140px;
+}
+
+.user-card-photo {
+  flex: 0 0 130px;
+  margin-right: 32px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.user-card-photo img {
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #764ba233;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+}
+
+.user-card-details {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.user-detail-row {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.user-detail-key {
+  color: #888;
+  font-size: 1.01rem;
+  font-weight: 500;
+  margin-right: 8px;
+  min-width: 70px;
+}
+
+.user-detail-value {
+  color: #333;
+  font-size: 1.05rem;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.user-bio {
+  color: #555;
+  font-size: 1.01rem;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 0;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.user-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.10);
+  padding: 28px 36px 24px 36px;
+  margin: 28px auto 32px auto;
+  max-width: 340px;
+  text-align: center;
+  border: 1.5px solid #ececf7;
+  color: #333;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.user-card:hover {
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.22);
+  transform: translateY(-4px) scale(1.03);
+  border-color: #764ba2;
+}
+
+.user-card h1 {
+  color: #764ba2;
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.user-card h2 {
+  color: #333;
+  font-size: 1.12rem;
+  margin: 10px 0 4px 0;
+  font-weight: 500;
+}
+
+.user-location {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.about-subtitle {
+  color: #555;
+  font-size: 1.15rem;
+  margin-bottom: 32px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.about-section-label {
+  color: #764ba2;
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .about-page {
+    width: 96vw;
+    max-width: 98vw;
+    padding: 18px 4vw 24px 4vw;
+  }
+  .user-cards-row {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+  .user-card-horizontal {
+    max-width: 98vw;
+    padding: 18px 8px 14px 8px;
+  }
+  .user-card-photo {
+    margin-right: 16px;
+  }
+  .user-card-photo img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 600px) {
+  .user-card-horizontal {
+    min-width: 0;
+  }
+} 

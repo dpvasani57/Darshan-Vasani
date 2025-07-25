@@ -1,0 +1,38 @@
+# 📦 Project Name
+name: e-commerce
+
+services:
+  # 🔧 Backend Service
+  backend:
+    build:
+      context: .                 # Use current directory as build context
+      dockerfile: Dockerfile    # Dockerfile to build the backend image
+    container_name: backend     # Name of the backend container
+    ports:
+      - "8000:8000"             # Expose container port 8000 on host port 8000
+    depends_on:
+      - db                      # Ensure db starts before backend
+      - redis                   # Ensure redis starts before backend
+
+  # 🗃️ PostgreSQL Database Service
+  db:
+    image: postgres:16          # Use latest stable Postgres 16 image
+    container_name: postgres    # Name of the DB container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist DB data
+
+  # ⚡ Redis In-Memory Data Store
+  redis:
+    image: redis:7-alpine       # Lightweight Alpine Redis 7 image
+    container_name: redis       # Name of the Redis container
+    volumes:
+      - redis_data:/data        # Persist Redis data
+
+# 🗃️ Volumes for persistent storage
+volumes:
+  postgres_data:
+  redis_data:
